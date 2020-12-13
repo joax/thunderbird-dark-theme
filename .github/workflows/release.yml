@@ -36,7 +36,7 @@ jobs:
         uses: actions/create-release@v1.1.4
         with:
           # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
-          tag_name: ${{RELEASE_VERSION}}
+          tag_name: ${{env.RELEASE_VERSION}}
           # The name of the release. For example, `Release v1.0.1`
-          release_name: Dark Exptended ${{RELEASE_VERSION}}
+          release_name: Dark Exptended ${{env.RELEASE_VERSION}}
           # Text describing the contents of the tag.
