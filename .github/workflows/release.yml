@@ -1,0 +1,42 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Only run when tag is there (new release)
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+      
+      # Gather Version Number
+      - name: Check output
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+        run: |
+          echo $RELEASE_VERSION
+          echo ${{ steps.vars.outputs.tag }}
+
+      # Build the XPI
+      - name: Generate XPI package
+        run: zip -r thunderbird-dark-theme-extended-${RELEASE_VERSION}.xpi *
+
+      # Create the release.
+      - name: Create a Release
+        uses: actions/create-release@v1.1.4
+        with:
+          # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
+          tag_name: ${{RELEASE_VERSION}}
+          # The name of the release. For example, `Release v1.0.1`
+          release_name: Dark Exptended ${{RELEASE_VERSION}}
+          # Text describing the contents of the tag.
