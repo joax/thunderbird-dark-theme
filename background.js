@@ -32,7 +32,8 @@ messenger.WindowListener.registerWindow(
 
 // Not working on TB 78.5 - Ubuntu 20
 browser.messageDisplayScripts.register({
-    css : [ { file: "/content/skin/multiMessage.css"} ]
+    css : [ { file: "/content/skin/multiMessage.css"} ],
+    js: [],
 })
 
 messenger.WindowListener.startListening();

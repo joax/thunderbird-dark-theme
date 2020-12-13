@@ -1,24 +1,27 @@
-# Monterail Dark
-_Monterail Dark, a Thunderbird theme inspired by the mockup of Monterail_
+# Monterail Dark Extended
+_Monterail Dark Extended, a Thunderbird theme inspired by the mockup of Monterail_
 
 ## Another version: [Monterail Full Dark](https://github.com/conema/monterail-fulldark)
 
 ## Thunderbird v68
-WARNING: the last version is only compatible with Thunderbird 78.x
+WARNING: the last version is only compatible with Thunderbird 78.5+
 
 ## What is this?
 This is a full theme for the Thunderbird e-mail client, inspired by [Monterail](https://monterail.com/blog/2016/the-power-of-email-clients-why-did-we-redesign-thunderbird) mockup and by [spymastermatt](https://github.com/spymastermatt/thunderbird-monterail)'s dark theme. As opposed to the spymastermatt's version, this theme can be **installed easily and quickly with an addon** and it's **compatible with Thunderbird 78**. The previously versions are compatible also with Thunderbird 68.
 
 ## Installation
-### Manual (from source)
+### Manual (from source) - (This doesn't work any more from TB78)
 The first step is to [download](https://github.com/conema/monterail-dark/archive/master.zip) the theme, unzip the contents and re-create a zip only with the content of "monterail-dark" folder. Change the extension of the archive to ".xpi". An extensive guide for install the xpi file can be found [here](https://support.mozilla.org/en-US/kb/installing-addon-thunderbird) on the Mozilla support site, starting from "A slightly less ideal case". The Addon Manager can be found by clicking the menu icon ![menu](https://prod-cdn.sumo.mozilla.net/uploads/gallery/images/2017-10-22-15-37-15-18c775.png) (on the right, next to the search bar) followed by Add-ons and click on the Themes panel on the left.
 
 ### Theme market (**recommended procedure**)
 The theme can be directly downloaded from the Thunderbird Add-on market, the old version can be found by searching "Monterail Dark" directly in the add-on page of thunderbird or [there](https://addons.thunderbird.net/en-US/thunderbird/addon/monterail-dark/), the new version can be found by searching "Monterail Dark 2.0 for TB>68" directly in the add-on page of thunderbird or [there](https://addons.thunderbird.net/it/thunderbird/addon/monterail-dark-2-0-for-tb-68/).
 
 ## Screenshots
-![screen1](https://user-images.githubusercontent.com/12801153/44290442-039a8180-a279-11e8-9a04-574cc991f012.jpg)
-![screen2](https://user-images.githubusercontent.com/12801153/44290455-13b26100-a279-11e8-9552-d1ddd922dd5a.jpg)
+![Preview Account Center](/preview-account-center.png?raw=true)
+![Preview Messenger](/preview-messenger.png?raw=true)
+![Preview Composer](/preview-composer.png?raw=true)
+![Preview Calendar](/preview-calendar.png?raw=true)
+![Preview Tasks](/preview-tasks.png?raw=true)
 
 ## FAQ
 * Installation fail/Theme didn't change in Thunderbird 60<br>
