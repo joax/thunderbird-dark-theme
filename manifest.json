@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Monterail Darkness - Extended",
   "description": "Monterail Dark - Extended: a Thunderbird theme inspired by the mockup of Monterail",
-  "version": "4.1.0",
+  "version": "1.0.0",
   "author": "Joaquin Ayuso de Paul <joax@joax.me>",
   "homepage_url": "https://addons.thunderbird.net/en-US/thunderbird/addon/monterail-darkness/",
   "applications": {

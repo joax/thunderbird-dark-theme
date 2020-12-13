@@ -1,3 +1,5 @@
+![](https://github.com/joax/thunderbird-dark-theme/workflows/releases/badge.svg)
+
 # Monterail Dark Extended
 _Monterail Dark Extended, a Thunderbird theme inspired by the mockup of Monterail_
 
