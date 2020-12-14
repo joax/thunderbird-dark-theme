@@ -1,6 +1,7 @@
 ![](https://github.com/joax/thunderbird-dark-theme/workflows/CI/badge.svg)
 
 ![Logo](/icon.png?raw=true)
+
 [Add-On Page](https://addons.thunderbird.net/en-US/thunderbird/addon/monterail-darkness-extended/)
 
 # Monterail Dark Extended
