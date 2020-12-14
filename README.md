@@ -20,7 +20,7 @@ This is a full theme for the Thunderbird e-mail client, inspired by [Monterail](
 The first step is to [download](https://github.com/joax/releases) the latest release of the theme XPI. On Thunderbird go to Add-ons > Settings > Install Add-on from file. Choose the XPI you just downloaded.
 
 ### Theme market (**recommended procedure**)
-The theme can be directly downloaded from the Thunderbird Add-on market, the old version can be found by searching "Monterail Dark 2.0 for TB>68" directly in the add-on page of thunderbird or [there](https://addons.thunderbird.net/it/thunderbird/addon/monterail-dark-2-0-for-tb-68/). 
+The theme can be directly downloaded from the [Thunderbird Add-on market](https://addons.thunderbird.net/en-US/thunderbird/addon/monterail-darkness-extended/), the old version can be found by searching "Monterail Dark 2.0 for TB>68" directly in the add-on page of thunderbird or [there](https://addons.thunderbird.net/it/thunderbird/addon/monterail-dark-2-0-for-tb-68/). 
 
 ## Screenshots
 ![Preview Account Center](/preview-account-center.png?raw=true)
