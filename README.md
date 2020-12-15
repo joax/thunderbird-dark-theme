@@ -40,7 +40,7 @@ Yes. Currently the theme has been tested only on Windows 10 and openSUSE. You ar
 
 * With which versions of Thunderbird can I use this theme?
 
-Version **[1.2.5](https://github.com/joax/releases/tag/v1.0.3)** works with Thunderbird **>=78.5.0**.
+Version **[1.0.5](https://github.com/joax/releases/tag/v1.0.5)** works with Thunderbird **>=78.5.0**.
 
 ## Credits
 This addon is based on [Monterail by Paenglab](https://addons.thunderbird.net/en-US/thunderbird/addon/monterail/), source code is included.
