@@ -9,11 +9,11 @@ _Monterail Dark Extended, a Thunderbird theme inspired by the mockup of Monterai
 
 ## Another version: [Monterail Full Dark](https://github.com/conema/monterail-fulldark)
 
-## Thunderbird v68
-WARNING: the last version is only compatible with Thunderbird 78.5+
+## Version Compatibility Warning
+This extension has been upgraded to match the new Theme Experiments model. This has been adapted on version 78.7.1 and onwards. If you want a previous version of this plugin, go to the Thunderbird Add Ons page.
 
 ## What is this?
-This is a full theme for the Thunderbird e-mail client, inspired by [Monterail](https://monterail.com/blog/2016/the-power-of-email-clients-why-did-we-redesign-thunderbird) mockup and by [spymastermatt](https://github.com/spymastermatt/thunderbird-monterail)'s dark theme. As opposed to the spymastermatt's version, this theme can be **installed easily and quickly with an addon** and it's **compatible with Thunderbird 78**.
+This is a full theme for the Thunderbird e-mail client, inspired by [Monterail](https://monterail.com/blog/2016/the-power-of-email-clients-why-did-we-redesign-thunderbird) mockup and by [spymastermatt](https://github.com/spymastermatt/thunderbird-monterail)'s dark theme. As opposed to the spymastermatt's version, this theme can be **installed easily and quickly with an addon** and it's **compatible with Thunderbird 78.7+**.
 
 ## Installation
 ### Manual - Download XPI
@@ -40,9 +40,10 @@ Yes. Currently the theme has been tested only on Windows 10 and openSUSE. You ar
 
 * With which versions of Thunderbird can I use this theme?
 
-Version **[1.0.5](https://github.com/joax/releases/tag/v1.0.5)** works with Thunderbird **>=78.5.0**.
+Version **[1.0.7](https://github.com/joax/releases/tag/v1.0.7)** works with Thunderbird **>=78.5.0**.
+Version **[2.0.1](https://github.com/joax/releases/tag/v2.0.1)** works with Thunderbird **>=78.7.1**.
 
 ## Credits
-This addon is based on [Monterail by Paenglab](https://addons.thunderbird.net/en-US/thunderbird/addon/monterail/), source code is included.
+This addon is based on [Monterail by Paenglab](https://addons.thunderbird.net/en-US/thunderbird/addon/monterail/), source code is included on v68 and v78 branches of this repository.
 
 Special thanks to spymastermatt for the work that he done to create the original dark theme. Also to conema for the sheer help on adapting the theme to the newest versions of Thunderbird (78+).
