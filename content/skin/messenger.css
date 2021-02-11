@@ -15,6 +15,7 @@
 .searchBox {
     background: #fff !important;
     color: #000 !important;
+    height: auto !important;
 }
 
 #messengerWindow>#navigation-toolbox:not(:-moz-window-inactive) {
