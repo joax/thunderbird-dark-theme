@@ -19,6 +19,7 @@
 	/*Message row & Folder row height */
     --message-list-row-height: 40px;
 	--folder-tree-row-height: 25px;
+
 	
     /* Scollbar */
     --scrollbar-thumb-color: rgba(127, 127, 127, 0.5);
@@ -37,6 +38,8 @@
     --dateColor: var(--background-color);
     --barHlColor: var(--tree-background-color-selected);
     --barColor: var(--tree-background-color-selected);
+
+    --agenda-item-current-color: red;
 }
 
 body {
@@ -84,6 +87,58 @@ toolbox {
     padding-bottom: 12px !important;
 }
 
+:root[lwt-tree] tree {
+    color: white !important;
+    background: var(--background-color) !important;
+}
+
+:root[lwt-tree] #agenda-listbox {
+    color: white !important;
+    scrollbar-color: rgba(204,204,204,.5) rgba(230,230,235,.5);
+}
+
+#threadTree treecol, 
+#threadTree{
+    background-color: var(--thread-background-color) !important;
+}
+
+/*! Sidebar Background */
+#folderTree {
+    -moz-appearance: none !important;
+    background-color: var(--background-color) !important;
+    color: #aaa !important
+}
+
+#folderTree > treechildren::-moz-tree-cell-text {
+    border: none !important;
+    background-color: var(--tree-background-color-selected) !important;
+    background: var(--tree-background-color-selected) !important;
+    background-image: none;
+    -moz-appearance: none!important;
+    color: black !important;
+    font-family: monospace !important;
+}
+
+/*!***** Tree *****/
+#folderTree > treechildren::-moz-tree-row(selected) {
+    border: none !important;
+    background: var(--tree-background-color-selected) !important;
+    -moz-appearance: none !important;
+    color: var(--treechildren-focusColor) !important;
+}
+
+#folderTree > treechildren::-moz-tree-row(primary) {
+    background: var(--tree-background-color-selected) !important
+}
+
+#folderTree > treechildren::-moz-tree-cell-text(selected) {
+    color: #fff !important
+}
+
+#folderTree > treechildren::-moz-tree-line {
+    visibility: visible !important;    
+}
+
 .inline-toolbar, 
 .contentTabToolbar {
     padding-left: 10px;
@@ -103,7 +158,7 @@ toolbox {
 .searchBox, 
 .themeableSearchBox {
     padding-block: 10px !important;
-    padding-inline: 10px 2px !important;
+    padding-inline: 20px 20px !important;
 }
 
 #messageList {
@@ -418,15 +473,33 @@ thumb:hover {
     background-color: hsla(0, 0%, 0%, .22);
 }
 
-.mail-toolbox,
-#mailContent>#mail-toolbox,
-.contentTabInstance>.contentTabToolbox,
-#folderpane-mode-selector-menulist, 
-.contentTabToolbox {
+menubar>menu {
+    margin-left: 10px !important;
+    margin-right: 5px !important;
+    padding: 6px 0 !important;
+}
+
+
+
+/* .mail-toolbox */
+#calendar-toolbox,
+#task-toolbox,
+#mail-toolbox
+/* .contentTabInstance>.contentTabToolbox,
+#folderpane-mode-selector-menulist,
+.contentTabToolbox  */
+{
     box-shadow: none;
     background-image: none;
     background-color: var(--background-color-light);
     color: var(--message-list-text-color);
+}
+
+#calendar-toolbox>.toolbarbutton-icon,
+#task-toolbox>.toolbarbutton-icon,
+#mail-toolbox>.toolbarbutton-icon {
+    fill: var(--message-list-text-color) !important;
+    color: var(--message-list-text-color) !important;
 }
 
 #quick-filter-bar,
@@ -457,7 +530,7 @@ thumb:hover {
 }
 
 .tabmail-tab:not([selected]) {
-    color: inherit !important;
+    color: white !important;
 }
 
 .treecol-icon,
@@ -516,9 +589,20 @@ toolbar[brighttext]>.toolbarbutton-1 {
 /* foldertree & threadtree */
 
 /* Set Font Size In Folder Pane */
-
+/* 
 #folderTree {
 	background: var(--background-color) !important;
+} */
+
+#folderTree>treechildren::-moz-tree-row {
+    font-size: 18pt !important;
+    height: 30px !important;
+    margin-left: 10px !important;
+}
+
+#folderTree {
+    padding-top: 20px;
+    padding-left: 5px;
 }
 
 /* General Stuff */
@@ -535,7 +619,6 @@ toolbar[brighttext]>.toolbarbutton-1 {
     --treechildren-hoverBackground: var(--tree-background-color-hover);
     --treechildren-hoverCurrentBackground: var(--tree-background-color-hover);
     background-color: var(--thread-background-color) !important;
-	
 }
 
 /*    Thread tree sizes   */
@@ -702,7 +785,7 @@ calendar-editable-item[selected="true"] .calendar-color-box {
     color: #fff;
 }
 
-#today-pane-panel > sidebarheader {
+#today-pane-panel > .sidebar-header {
     background: var(--background-color-light);
 }
 
@@ -734,8 +817,10 @@ calendar-editable-item[selected="true"] .calendar-color-box {
     color: #000 !important;
 }
 
-#calendar-toolbox-container .toolbarbutton-icon{
+#calendar-toolbox-container .toolbarbutton-icon,
+#calendar-toolbox-container .toolbarbutton-text {
     fill: #666;
+    color: #000;
 }
 
 #ltnSidebar, 
@@ -792,7 +877,7 @@ calendar-list-tree > tree {
 #calendar-task-tree-detail treechildren,
 #calendar-list-tree-widget treechildren,
 #calendar-task-tree-detail treechildren::-moz-tree-row,
-#calendar-list-tree-widget treechildren::-moz-tree-row,{
+#calendar-list-tree-widget treechildren::-moz-tree-row{
   background: var(--background-color) !important;
   color: var(--thread-background-color) !important;
 }
@@ -822,7 +907,7 @@ calendar-list-tree > tree {
 #calendar-task-tree treechildren::-moz-tree-row {
     padding: auto 20px;
     min-height: 40px;
-    border-bottom: 1px solid rgba(127, 127, 127, 0.2) !important;;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.2) !important;
 }
 
 #calendar-task-tree-detail treechildren::-moz-tree-row(selected),
@@ -866,6 +951,10 @@ calendar-list-tree > tree {
 #unifinder-search-results-tree treechildren::-moz-tree-row(hover, selected) {
     border-color: var(--tree-background-color-selected);
     background-color: var(--tree-background-color-selected) !important;
+}
+
+#calendar-task-tree-detail treechildren>.calendar-task-treechildren {
+    background: var(--background-color) !important;
 }
 
 #other-actions-box,

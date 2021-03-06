@@ -15,14 +15,13 @@
     "64": "icon.png"
   },
   "theme_experiment": {
-    "stylesheet": "style.css",
-    "colors": {
-      "exp_chat_button": "--chat-button-color"
-    }
+    "stylesheet": "style.css"
   },
   "theme": {
     "colors": {
-      "exp_chat_button": "green"
+      "toolbar": "#232f3e",
+      "popup": "#232f3e",
+      "toolbar_text": "#ffffff"
     }
   }
 }
