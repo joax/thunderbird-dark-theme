@@ -1,0 +1,1350 @@
+
+@import "https://fonts.googleapis.com/css2?family=Google+Sans:wght@100;200;300;400;500;700;900&display=swap";
+
+:root {
+    --scrollbar-thumb-hover-color: red;
+    /* Background color Navigation & Folder Pane */
+    --background-color: #232f3e;
+	--background-color-inactive: #2e3742;
+    
+    /* Background and Text Sidebar */
+    --background-sidebar: #232f3e;
+    --sidebar-text-color: #FFFFFF;
+
+    /* Background Toolbox  & Compose*/
+	--background-color-light: #F2F1F0;
+	
+    /* Background folder/thread/Lightning */
+    --thread-background-color: #FFFFFF;
+
+    --tree-background-color-selected: #ec7211;
+	--tree-background-color-selected-secondary: #fcb275;
+	--tree-background-color-selected-tertiary: #ffe8d4;
+    --tree-background-color-hover: #f5f5f5;
+	--tree-background-color-inactive: #DDDDDD;
+    --tree-border-color-selected: #dd6706;
+    --tree-border-color-selected-secondary: #faa865;
+    --tree-border-color-selected-tertiary: #f8cca6;
+	--tree-text-color-selected: #ffffff;
+	--tree-text-color-hover: #333333;
+	--tree-text-color: #ffffff;
+	
+	/* Fonts */
+    --message-list-text-color: #4C4C4C;
+    --link-color: #80CAFE;
+	
+	/*Message row & Folder row height */
+    --message-list-row-height: 40px;
+	--folder-tree-row-height: 25px;
+
+	
+    /* Scollbar */
+    --scrollbar-thumb-color: rgba(127, 127, 127, 0.5);
+	--scrollbar-thumb-hover-color: var(--tree-background-color-selected);
+	
+    /* Message Headers */
+    --subject-line-font-size: 150%;
+    --headers-background-color: #F2F1F0;
+    --headers-text-color: var(--message-list-text-color);
+
+    /* Search Box */
+    --search-background-color: #fff;
+    --search-text-color: #000;
+
+    /* Date filter search */
+    --dateColor: var(--background-color);
+    --barHlColor: var(--tree-background-color-selected);
+    --barColor: var(--tree-background-color-selected);
+
+
+	/* Calendar Theme */
+	--calendar-background-weekend: #f0f0f0;
+
+	--viewDayBoxSelectedBackground: #ec7211;
+}
+
+body {
+    font-family: "Google Sans", Verdana, sans-serif !important;
+    letter-spacing: 0.7px !important;
+    overflow-y: auto !important;
+	background: #F2F1F0 !important;
+}
+
+splitter {
+    border-color: rgba(127, 127, 127, 0.25) !important;
+}
+
+/****** Folder Tree **************/
+
+#folderTree {
+    -moz-appearance: none !important;
+    background-color: var(--background-sidebar) !important;
+    color: var(--sidebar-text-color) !important
+}
+
+#folderTree>treechildren {
+    --treechildren-hoverBackground: rgba(255,255,255,.1);
+    --treechildren-hoverCurrentBackground: rgba(255,255,255,.1);
+}
+
+#folderTree>treechildren::-moz-tree-row {
+    font-family: "Google Sans", sans-serif !important;
+	background: var(--background-sidebar) !important;
+	color: var(--sidebar-text-color) !important;
+    font-size: 18pt !important;
+    height: 30px !important;
+    margin-right: 10px !important;
+}
+
+#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text,
+#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected, focus) {
+  color: #ddd !important;
+}
+
+#folderTree > treechildren::-moz-tree-row(selected) {
+    border: none !important;
+    background: var(--tree-background-color-selected) !important;
+    -moz-appearance: none !important;
+    color: var(--treechildren-focusColor) !important;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#folderTree > treechildren::-moz-tree-row(primary) {
+    background: var(--tree-background-color-selected) !important
+}
+
+#folderTree > treechildren::-moz-tree-cell-text(selected) {
+    color: var(--sidebar-text-color) !important;
+}
+
+#folderTree > treechildren::-moz-tree-line {
+    visibility: visible !important;
+}
+
+#folderTree {
+    padding-top: 20px !important;
+    padding-right: 0px !important;
+}
+
+#folderPaneBox>#folderTree>treechildren::-moz-tree-image {
+    fill: var(--tree-text-color) !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 5px 0px 5px !important;
+}
+
+#folderTree>treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true),
+#folderTree>treechildren::-moz-tree-cell-text(folderNameCol, closed, subfoldersHaveUnreadMessages-true) {
+    color: #fff !important;
+    font-style: italic !important;
+}
+
+#folderTree>treechildren::-moz-tree-twisty {
+    -moz-appearance: none;
+    padding: 0px !important;
+    padding-inline-start: 5px !important;
+    padding-inline-end: 3px !important;
+    padding-top: 3px !important;
+    text-align: center !important;
+    width: 15px !important;
+    height: 15px !important;
+    max-height: 15px !important;
+    min-height: 15px !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+    fill: #fff !important;
+    background-color: var(--background-sidebar) !important;
+    background-position: center center;
+    border-radius: 20px !important;
+}
+
+#folderTree>treechildren::-moz-tree-twisty(open) {
+    -moz-appearance: none;
+}
+
+
+#folderTree>treechildren::-moz-tree-twisty:-moz-window-inactive {
+    fill: var(--tree-text-color) !important;
+    color: var(--tree-text-color) !important;
+}
+
+#accountTreeBox>treechildren,
+#folderTree>treechildren,
+#threadTree>treechildren,
+.calendar-task-tree>treechildren, 
+#unifinder-search-results-tree>treechildren {
+    --treechildren-selectedBackground: var(--tree-background-color-selected);
+    --treechildren-selectedFocusBackground: var(--tree-background-color-selected);
+    --treechildren-selectedFocusCurrentBackground: var(--tree-background-color-selected);
+    --treechildren-hoverSelectedBackground: var(--tree-background-color-selected);
+}
+
+/****** Threads Section **********/
+
+#threadTree>treechildren::-moz-tree-row {
+    height: 40px !important;
+	line-height: 40px !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.2) !important;
+    background-color: var(--thread-background-color) !important;
+    color: var(--tree-text-color-hover) !important;
+}
+
+#threadTree treecol, 
+#threadTree{
+    background-color: var(--thread-background-color) !important;
+    color: var(--message-list-text-color) !important;
+}
+
+#threadTree > treechildren::-moz-tree-cell-text(untagged),
+#threadCols {
+    color: #000 !important;
+}
+
+
+#threadTree > treechildren::-moz-tree-img(selected) {
+    fill: var(--tree-text-color-selected) !important;
+}
+
+#threadTree > treechildren::-moz-tree-row(selected),
+#threadTree > treechildren::-moz-tree-row(tagged, selected),
+#threadTree > treechildren::-moz-tree-row(container, selected) {
+    -moz-appearance: none !important;
+	border: none !important;
+    background-color: var(--tree-background-color-selected) !important;
+    color: var(--tree-text-color-selected) !important;
+}
+
+#threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected),
+#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected, focus) {
+    color: var(--tree-text-color-selected) !important;
+}
+
+#threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-row(hover) {
+  background-color: var(--tree-background-color-hover) !important;
+  color: var(--tree-text-color-hover) !important;
+  fill: var(--tree-text-color-hover) !important;
+}
+
+#threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-row(hover, selected) {
+    background-color: var(--tree-background-color-selected-secondary) !important;
+    color: var(--tree-text-color-selected) !important;
+    fill: var(--tree-text-color-selected) !important;  
+}
+
+#threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover),
+#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover, current),
+#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover, selected) {
+    color: var(--tree-text-color-hover) !important;
+    fill: var(--tree-text-color-hover) !important;
+}
+
+#threadTree > treechildren::-moz-tree-row(selected):-moz-window-inactive,
+#threadTree > treechildren::-moz-tree-row(container, selected):-moz-window-inactive {
+    background-color: var(--tree-background-color-selected) !important;
+}
+
+/****** Top Tabs *****************/
+
+#mail-toolbar-menubar2,
+#mail-bar3 #MsgHeadersToolbar,
+#addrbook-toolbar-menubar2,
+#ab-bar2,
+#FormatToolbar {
+    -moz-appearance: none !important;
+    border: none !important;
+}
+
+toolbar>toolbarbutton {
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+}
+
+box,
+hbox,
+vbox,
+toolbox {
+    box-shadow: none !important;
+}
+
+#agenda-listbox > richlistitem {
+    padding: 7px 4px !important;
+}
+
+#agenda-toolbar .agenda-container-box {
+    padding: 7px 4px !important;
+}
+
+#agenda-panel .today-subpane {
+    padding: 2px 4px !important;
+}
+
+.tab-content {
+    padding-inline-end: 15px !important;
+    padding-inline-start: 15px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+}
+
+
+:root[sizemode="normal"] #mail-toolbar-menubar2[autohide="true"][inactive] ~ #tabs-toolbar {
+	background-color: var(--background-color) !important;
+	color: var(--tree-text-color-selected) !important;
+}
+
+#messengerWindow>#navigation-toolbox:not(:-moz-window-inactive) {
+    color: #fff !important;
+    background-color: var(--background-color) !important;
+}
+
+#messengerWindow>#navigation-toolbox:-moz-window-inactive {
+    color: #ddd !important;
+    background-color: var(--background-color-inactive) !important;
+}
+
+#menubar-items>#mail-menubar>menu {
+    -moz-appearance: none;
+    border-style: none;
+    color: inherit !important;
+}
+
+#menubar-items>#mail-menubar>menu[_moz-menuactive="true"]:not([disabled="true"]) {
+    background-color: hsla(0, 0%, 0%, .12);
+}
+
+#menubar-items>#mail-menubar>menu[_moz-menuactive="true"][open="true"]:not([disabled="true"]) {
+    background-color: hsla(0, 0%, 0%, .22);
+}
+
+menubar>menu {
+	-moz-appearance: none;
+    margin-left: 10px !important;
+    margin-right: 5px !important;
+    padding: 6px 0 !important;
+	background-image: none !important;
+	background-color: var(--background-sidebar) !important;
+	color: var(--tree-text-color-selected) !important;
+}
+
+.tabmail-tab .tab-background-middle[selected=true] {
+    --fgTabBackgroundColor: #fff;
+    --fgTabTexture: linear-gradient(transparent, transparent);
+}
+
+.tabmail-tab:not([selected]) {
+    color: white !important;
+}
+
+.treecol-icon,
+.tabmail-tab,
+.toolbarbutton-1 {
+    -moz-context-properties: fill;
+}
+
+.toolbarbutton-1,
+.toolbarbutton-menubutton-button {
+    color: var(--fgTabBackgroundColor);
+    fill: var(--fgTabBackgroundColor);
+}
+
+#navigation-toolbox .toolbarbutton-1,
+#navigation-toolbox .toolbarbutton-menubutton-button {
+    color: #fff;
+    fill: #fff;
+}
+
+.tabmail-tab[selected]:-moz-window-inactive .tab-icon-image,
+.tabmail-tab[selected]:-moz-window-inactive .tab-label-container,
+.toolbarbutton-1:-moz-window-inactive .toolbarbutton-icon,
+.toolbarbutton-1:-moz-window-inactive>.toolbarbutton-text,
+.toolbarbutton-menubutton-button:-moz-window-inactive>.toolbarbutton-icon,
+.toolbarbutton-menubutton-button:-moz-window-inactive>.toolbarbutton-text {
+    opacity: 0.5;
+}
+
+.toolbarbutton-menubutton-button>.toolbarbutton-icon,
+.toolbarbutton-1 .toolbarbutton-icon {
+    width: 16px !important;
+    height: 16px !important;
+    margin: 1px !important;
+    padding: 0 !important;
+}
+
+toolbar>#button-chat[unreadMessages="true"] {
+    fill: var(--tree-background-color-selected);
+}
+
+toolbar[brighttext]>.toolbarbutton-1 {
+    fill: #fff;
+}
+
+/****** Toolbars *****************/
+
+.inline-toolbar, 
+.contentTabToolbar {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.toolbarbutton-1 {
+    margin: 10px 4px !important;
+    padding: 5px 6px !important;
+}
+
+
+
+/******* Search Boxes **************/
+
+#quick-filter-bar-main-bar {
+    padding-inline-start: 10px !important;
+    padding-inline-end: 10px !important;
+}
+
+.searchBox, 
+.themeableSearchBox {
+    padding-block: 10px !important;
+    padding-inline: 20px 20px !important;
+}
+
+.searchInput {
+    background: var( --search-background-color);
+    color: var(--search-text-color);
+}
+
+#searchInput,
+.themeableSearchBox,
+.searchBox {
+    background: #fff !important;
+    color: #000 !important;
+	height: auto !important;
+	padding-left: 20px;
+}
+
+/************** Header View ************/
+
+#header-view-toolbox .toolbarbutton-icon {
+    fill: #666;
+}
+
+#tabbar-toolbar .toolbarbutton-icon {
+    fill: #fff;
+}
+
+/********* Calendar Sidebar ************/
+
+.calendar-task-tree>treechildren, 
+#calendar-task-tree treechildren::-moz-tree-row(even),
+#calendar-task-tree treechildren::-moz-tree-row(odd),
+#unifinder-search-results-tree>treechildren,
+#unifinder-search-results-tree>treechildren::-moz-tree-row(even),
+#unifinder-search-results-tree>treechildren::-moz-tree-row(odd),
+#threadTree treechildren,
+#threadTree treechildren::-moz-tree-row(container),
+#threadContentArea>#threadTree {
+    --treechildren-hoverBackground: var(--tree-background-color-hover);
+    --treechildren-hoverCurrentBackground: var(--tree-background-color-hover);
+    background-color: var(--thread-background-color) !important;
+}
+
+/************** Toolbars **************/
+
+#calendarContent {
+	border: 0 !important;
+}
+
+.mail-toolbox {
+	background-color: var(--background-sidebar) !important;
+	background-image: none !important;
+	color: var(--fgTabBackgroundColor) !important;
+}
+
+.mail-toolbox .toolbarbutton-icon,
+.mail-toolbox .toolbarbutton-text {
+    fill: var(--tree-text-color-selected) !important;
+    color: var(--tree-text-color-selected) !important;
+} 
+
+#mail-toolbox,
+#calendar-toolbox,
+#task-toolbox,
+#chat-toolbar {
+	box-shadow: none;
+	background-image: none;
+	background-color: var(--background-color-light) !important;
+	color: var(--message-list-text-color) !important;
+}
+
+#mail-toolbox .toolbarbutton-icon,
+#calendar-toolbox .toolbarbutton-icon,
+#task-toolbox .toolbarbutton-icon,
+#chat-toolbar .toolbarbutton-icon,
+#mail-toolbox .toolbarbutton-text,
+#calendar-toolbox .toolbarbutton-text,
+#task-toolbox .toolbarbutton-text,
+#chat-toolbar .toolbarbutton-text {
+	fill: var(--tree-text-color-hover) !important;
+	color: var(--tree-text-color-hover) !important;
+}
+
+/********* Calendar ****************/
+
+#threadCols,
+#threadCols treecol,
+#threadCols treecolpicker, 
+.calendar-task-tree treecol, 
+.calendar-task-tree treecolpicker, 
+#unifinder-search-results-tree treecol, 
+#unifinder-search-results-tree treecolpicker,
+#unifinder-todo-tree treecol,
+#unifinder-todo-tree treecolpicker {
+    -moz-appearance: none !important;
+}
+
+#threadCols treecol[sortDirection="ascending"] .treecol-sortdirection {
+    -moz-appearance: button-arrow-up !important;
+}
+
+#threadCols treecol[sortDirection="descending"] .treecol-sortdirection {
+    -moz-appearance: button-arrow-down !important;
+}
+
+#threadCols treecol,
+#threadCols treecolpicker.calendar-task-tree treecol, 
+.calendar-task-tree treecolpicker, 
+#unifinder-search-results-tree treecol, 
+#unifinder-search-results-tree treecolpicker,
+#unifinder-todo-tree treecol,
+#unifinder-todo-tree treecolpicker,
+#unifinder-todo-tree treecol,
+#unifinder-todo-tree treecolpicker {
+    color: var(--message-list-header-text-color) !important;
+    border: none !important;
+    padding: 3px !important;
+    border-left: 1px solid rgba(127, 127, 127, 0.4) !important;
+    min-width: 21px !important;
+}
+
+#threadPane {
+    -moz-appearance: none !important;
+}
+
+#calendar-nav-control {
+    background-color: var(--background-color-light) !important;
+	border: 0px !important;
+	box-shadow: none !important;
+	height: 60px;
+}
+
+#calendar-list-pane #calendar-list richlistitem {
+    color: white;
+}
+
+#calendar-list-pane #calendar-list richlistitem[selected="true"] {
+    color: var(--background-color) !important;
+}
+
+#calMinimonthBox {
+    padding: 14px;
+    font-size: 0.8em;
+}
+
+calendar-minimonth {
+    border-radius: 5px;
+}
+
+#calMinimonthBox .minimonth-day {
+	color: var(--background-color) !important;
+    padding: 5px;
+}
+
+#calMinimonthBox .minimonth-day[othermonth="true"] {
+	background-color: var(--background-color-light) !important;
+}
+
+#calMinimonthBox .minimonth-header {
+	background-color: var(--background-color-light) !important;
+	color: var(--background-sidebar) !important;
+}
+
+#calendarContent radio.calview {
+    padding: 18px 25px !important;
+    border-top: 1px solid var(--calview-border-color) !important;
+    margin-left: -1px !important;
+}
+
+#calendarContent #view-deck {
+    padding: 25px;
+    padding-bottom: 0px;
+}
+
+#calendarContent .calendar-event-column-linebox[weekend="true"],
+#calendarContent .calendar-month-day-box-day-off,
+#calendarContent .calendar-month-day-box-day-off .calendar-month-day-box-date-label {
+	color: var(--background-sidebar) !important;
+	background-color: var(--calendar-background-weekend) !important;
+}
+
+#calendarContent .calendar-event-column-linebox[off-time="true"] {
+    background-color: var(--calendar-background-weekend) !important;
+}
+
+#calendarContent .calendar-month-day-box-day-off[selected="true"] {
+	background-color: var(--viewDayBoxSelectedBackground) !important;
+}
+
+#calendarContent .calendar-month-day-box-day-off .calendar-month-day-box-date-label[selected="true"] {
+	background-color: var(--tree-background-color-selected) !important;
+	color: var(--tree-text-color-selected) !important;
+}
+
+#calendarContent .calendar-month-day-box-date-label[relation="today"],
+#calendarContent calendar-day-label[relation="today"], 
+#calendarContent calendar-day-label[relation="today1day"] {
+	background-color: var(--tree-background-color-selected) !important;
+	color: var(--tree-text-color-selected) !important;
+    border: 1px solid var(--tree-border-color-selected) !important;
+}
+
+#calendarContent .calendar-month-day-box-current-month[relation="today"], 
+#calendarContent .calendar-month-day-box-day-off[relation="today"], 
+#calendarContent .calendar-month-day-box-other-month[relation="today"],
+#calendarContent calendar-header-container[relation="today"], 
+#calendarContent .calendar-event-column-linebox[relation="today"], 
+#calendarContent calendar-day-label[orient][relation="today"] {
+	background-color: var(--tree-background-color-selected-secondary) !important;
+	color: var(--tree-text-color-selected) !important;
+	border: 1px solid var(--tree-border-color-selected-secondary) !important;
+}
+
+#calendarContent .calendar-month-day-box-date-label[selected="true"],
+#calendarContent .calendar-month-day-box-current-month[selected="true"],
+#calendarContent calendar-header-container[selected="true"], 
+#calendarContent .calendar-event-column-linebox[selected="true"] {
+	background-color: var(--tree-background-color-selected-tertiary) !important;
+	color: var(--tree-text-color-selected) !important;
+	border: 1px solid var(--tree-border-color-selected-tertiary) !important;
+}
+
+#calendarContent .calendar-month-day-box-date-label,
+#calendarContent .calendar-month-day-box-current-month .calendar-month-day-box-date-label {
+    background-color: var(--background-color-light) !important;
+	color: var(--message-list-text-color) !important;
+	border: 0 !important;
+}
+
+#calendarContent .calendar-month-day-box-date-label[selected="true"] {
+	background-color: var(--tree-background-color-selected-secondary) !important;
+}
+
+
+#calendarContent .calendar-month-day-box-date-label[today="true"] {
+	background-color: var(--tree-background-color-selected) !important;
+}
+
+.multiday-view-label-box[orient="horizontal"] > .multiday-view-label-time-spacer {
+    border-right: none !important;
+}
+
+.multiday-view-label-day-box[orient="horizontal"] {
+    border-top: none !important;
+    border-right: none !important;
+}
+
+calendar-day-label {
+    background-image: none !important;
+    padding: 10px;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+	color: var(--background-color) !important;
+}
+
+calendar-header-container {
+	color: var(--background-color) !important;
+}
+
+calendar-header-container[selected="true"], 
+.calendar-event-column-linebox[selected="true"] {
+	color: var(--background-color) !important;
+}
+
+/* Month Top Label Container */
+
+#calendarContent .labeldaybox-container {
+    border-right: 1px solid var(--viewBorderColor);
+    border-top: 1px solid var(--viewBorderColor);
+	border-left: 1px solid var(--viewBorderColor);
+}
+
+/* Calendar Events Boxes */
+
+#calendarContent .calendar-color-box {
+	opacity: 0.7;
+    background-image: none !important;
+	border-radius: 4px !important;
+}
+
+calendar-month-day-box-item[selected="true"] .calendar-color-box, 
+calendar-event-box[selected="true"] .calendar-color-box, 
+calendar-event-box[selected="true"] box.calendar-color-box, 
+calendar-editable-item[selected="true"] .calendar-color-box {
+    background-color: var(--tree-background-color-selected) !important; 
+    color: var(--tree-text-color-selected) !important;
+    opacity: 1;
+    box-shadow: 0 0 4px rbga(100,100,100,0.3) !important;  
+}
+
+.calendar-time-bar-box-odd, 
+.calendar-time-bar-box-even {
+	color: var(--tree-text-color-hover) !important;
+}
+
+.miniday-nav-buttons {
+    fill: #fff !important;
+    -moz-context-properties: fill, fill-opacity;
+}
+
+#day-view,
+#week-view,
+#multiweek-view,
+#month-view {
+    padding: 30px !important;
+}
+
+#day-view {
+	padding: 30px 60px !important;
+}
+
+#today-pane-panel, 
+#mini-day-box, 
+#agenda-toolbar, 
+#todo-tab-panel, 
+#mini-day-box stack, 
+#miniday-dropdown-button, 
+#mini-day-box > stack > hbox > vbox {
+    background-color: var(--background-color) !important;
+}
+
+#agenda-toolbar:-moz-window-inactive, 
+#todo-tab-panel:-moz-window-inactive, 
+#mini-day-box:-moz-window-inactive, 
+#mini-day-box stack:-moz-window-inactive, 
+#today-pane-splitter:-moz-window-inactive {
+    background-color: var(--background-color) !important;
+}
+
+.today-subpane {
+    color: #fff;
+}
+
+#todaypane-new-event-button {
+    color: #fff;
+    fill: #fff;
+    -moz-context-properties: fill, fill-opacity;
+}
+
+#agenda-listbox {
+    background-color: var(--background-color) !important;
+    color: #fff !important;
+}
+
+#today-pane-panel > .sidebar-header {
+    background: var(--background-color-light) !important;
+}
+
+.minimonth-day[selected="true"] {
+	background-color: var(--tree-background-color-selected) !important;
+    color: var(--tree-text-color-selected) !important;
+	border: 0 !important;
+}
+
+.minimonth-day[today="true"] {
+	background-color: var(--tree-background-color-selected-secondary) !important;
+    color: var(--tree-text-color-selected) !important;
+	border: 0 !important;
+}
+
+.agenda-container-box[selected="true"],
+.agenda-allday-container-box[selected="true"],
+.agenda-checkbox[selected="true"],
+.agenda-container-box[selected="true"][current="true"],
+.agenda-allday-container-box[selected="true"][current="true"],
+.agenda-checkbox[selected="true"][current="true"] {
+    background-color: var(--tree-background-color-selected) !important;
+    color: var(--tree-text-color-selected) !important;
+}
+
+.agenda-container-box[current="true"],
+.agenda-alldaycontainer-box[current="true"],
+.agenda-checkbox[current="true"],
+.agenda-container-box[selected="true"][current="true"][disabled="true"],
+.agenda-allday-container-box[selected="true"][current="true"][disabled="true"],
+.agenda-checkbox[selected="true"][current="true"][disabled="true"] {
+    color: #000;
+}
+
+/* Lightning */
+
+#calendar-toolbox-container,
+#calendar-task-tree treechildren::-moz-tree-cell-text,
+#unifinder-todo-tree treechildren::-moz-tree-cell-text(hover),
+#calendar-task-tree treechildren::-moz-tree-cell-text(hover) {
+    color: #000 !important;
+}
+
+#ltnSidebar, 
+#unifinder-todo-tree > .calendar-task-tree,
+#calendar-panel {
+    background-color: var(--background-color) !important;
+}
+
+#unifinder-todo-tree treecols {
+    background: var(--background-color-light);
+    color: #000 !important;
+}
+
+minimonth, #unifinder-searchBox, #task-addition-box {
+    background: var(--background-color-light);
+}
+
+#task-addition-box {
+    padding: 5px 12px;
+}
+
+treenode-checkbox, 
+#task-filtertree-pane, 
+#task-filter-pane radio:hover {
+    color: #fff;
+}
+
+calendar-list-tree > tree {
+    background: transparent;
+}
+
+.navigation-inner-box {
+    padding: 17px 22px 17px 12px;
+}
+
+checkbox.treenode-checkbox > .checkbox-check {
+	fill: var(--tree-text-color-selected) !important;
+	color: var(--tree-text-color-selected) !important;
+}
+
+#calendar-list-header,
+#task-tree-filter-header {
+    fill: var(--tree-text-color) !important;
+    color: var(--tree-text-color) !important;
+}
+
+.calendar-list-create {
+	fill: var(--tree-text-color-selected) !important;
+	color: var(--tree-text-color-selected) !important;
+}
+
+#task-filter-pane {
+	margin-bottom: 20px !important;
+}
+
+.calendar-list-header {
+	margin-bottom: 5px !important;
+}
+
+#calendar-task-tree-detail treechildren::-moz-tree-cell-text(selected),
+#calendar-task-tree-detail treechildren::-moz-tree-cell-text(selected, focus),
+#calendar-task-tree-detail treechildren::-moz-tree-cell-text,
+#calendar-task-tree-detail treechildren::-moz-tree-cell-text(selected, focus),
+#calendar-task-tree-detail treechildren::-moz-tree-cell-text(hover, selected),
+#calendar-task-tree-detail treechildren::-moz-tree-cell-text(hover, current),
+#calendar-list-tree-widget treechildren::-moz-tree-cell-text(selected),
+#calendar-list-tree-widget treechildren::-moz-tree-cell-text(selected, focus),
+#calendar-list-tree-widget treechildren::-moz-tree-cell-text,
+#calendar-list-tree-widget treechildren::-moz-tree-cell-text(selected, focus),
+#calendar-list-tree-widget treechildren::-moz-tree-cell-text(hover, selected),
+#calendar-list-tree-widget treechildren::-moz-tree-cell-text(hover, current) {
+    color: var(--thread-background-color) !important;
+}
+
+#calendar-task-tree-detail treechildren::-moz-tree-cell-text(hover),
+#calendar-list-tree-widget treechildren::-moz-tree-cell-text(hover) {
+    color: #000 !important;
+}
+
+#calendar-task-tree-detail treechildren>.calendar-task-treechildren {
+    background: var(--background-color) !important;
+}
+
+#show-completed-checkbox > .checkbox-check,
+#show-completed-checkbox {
+	fill: var(--tree-text-color-selected) !important;
+	color: var(--tree-text-color-selected) !important;
+}
+
+#calendar-task-tree-detail treechildren::-moz-tree-row(hover) {
+	color: var(--tree-text-color-hover) !important;
+}
+
+#calendar-task-tree-detail treechildren,
+#calendar-list-tree-widget treechildren,
+#calendar-task-tree-detail treechildren::-moz-tree-row,
+#calendar-list-tree-widget treechildren::-moz-tree-row{
+  background: var(--background-color) !important;
+  color: var(--thread-background-color) !important;
+}
+
+#calendar-task-tree-detail treechildren::-moz-tree-row {
+	height: 25px !important;
+}
+
+#calendar-task-tree-detail treechildren,
+#calendar-list-tree-widget treechildren,
+#calendar-task-tree treechildren, 
+#unifinder-search-results-tree > treechildren {
+    --treechildren-currentColor: var(--background-color);
+    --treechildren-hoverBackground: var(--tree-background-color-hover);
+    --treechildren-hoverCurrentBackground: var(--tree-background-color-hover);
+    --treechildren-selectedBackground: var(--tree-background-color-selected);
+    --treechildren-selectedFocusBackground: var(--tree-background-color-selected);
+    --treechildren-selectedFocusCurrentBackground: var(--tree-background-color-selected);
+    --treechildren-hoverSelectedBackground: var(--tree-background-color-selected);
+    --treechildren-selectedColor: #000;
+    --treechildren-focusColor: var(--tree-background-color-selected);
+    --treechildren-selectedImage: linear-gradient(var(--tree-background-color-selected), var(--tree-background-color-selected));
+    --treechildren-selectedFocusCurrentImage: linear-gradient(var(--tree-background-color-selected), var(--tree-background-color-selected));
+    --treechildren-hoverSelectedImage: linear-gradient(var(--tree-background-color-selected), var(--tree-background-color-selected));
+    --treechildren-hoverImage: linear-gradient(var(--tree-background-color-hover), var(--tree-background-color-hover));
+}
+
+#calendar-task-tree treecols,
+#calendar-task-tree treechildren::-moz-tree-row {
+    padding: auto 20px !important;
+    min-height: 40px !important;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.2) !important;
+}
+
+#calendar-task-tree-detail treechildren::-moz-tree-row(selected),
+#calendar-list-tree-widget treechildren::-moz-tree-row(selected),
+#calendar-task-tree treechildren::-moz-tree-row(selected),
+#unifinder-search-results-tree treechildren::-moz-tree-row(selected) {
+    border-color: var(--tree-background-color-selected);
+    background-color: var(--tree-background-color-selected) !important;
+	color: var(--tree-text-color-selected) !important;
+}
+
+#calendar-task-tree-detail treechildren::-moz-tree-row(selected, focus),
+#calendar-task-tree-detail treechildren::-moz-tree-row(dropOn) {
+    border-color: var(--tree-background-color-selected);
+    background-color: var(--tree-background-color-selected) !important;
+	color: var(--tree-text-color-selected) !important;
+}
+
+#calendar-task-tree-detail treechildren::-moz-tree-row(selected, current, focus) {
+    border-color: var(--tree-background-color-selected);
+    background-color: var(--tree-background-color-selected) !important;
+	color: var(--tree-text-color-selected) !important;
+}
+
+#calendar-task-tree-detail treechildren::-moz-tree-row(hover),
+#calendar-list-tree-widget treechildren::-moz-tree-row(hover),
+#calendar-task-tree treechildren::-moz-tree-row(hover),
+#unifinder-search-results-tree treechildren::-moz-tree-row(hover) {
+    border-color: var(--tree-background-color-hover);
+    background-color: var(--tree-background-color-hover) !important;
+}
+
+#calendar-task-tree-detail treechildren::-moz-tree-row(hover, current),
+#calendar-list-tree-widget treechildren::-moz-tree-row(hover, current),
+#calendar-task-tree treechildren::-moz-tree-row(hover, current),
+#unifinder-search-results-tree treechildren::-moz-tree-row(hover, current)  {
+    border-color: var(--tree-background-color-selected);
+    background-image: var(--tree-background-color-selected) !important;
+}
+
+#calendar-task-tree-detail treechildren::-moz-tree-row(hover, selected),
+#calendar-list-tree-widget treechildren::-moz-tree-row(hover, selected),
+#calendar-task-tree treechildren::-moz-tree-row(hover, selected),
+#unifinder-search-results-tree treechildren::-moz-tree-row(hover, selected) {
+    border-color: var(--tree-background-color-selected);
+    background-color: var(--tree-background-color-selected) !important;
+}
+
+#calendar-list-pane #calendar-list richlistitem[selected="true"] {
+	background-color: var(--tree-background-color-selected) !important;
+	color: var(--thread-background-color) !important;
+}
+
+#other-actions-box,
+#calendar-task-details-box {
+    padding: 0px 20px;
+}
+
+#calendar-task-details-description-wrapper {
+    margin: 20px;
+}
+
+#calendar-task-details-description {
+    padding: 20px;
+}
+
+#calMinimonthBox {
+    margin-top: 0px;
+}
+
+/************** SCROLLBARS *************/
+
+/*    Scrollbar    */
+scrollbar {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    width: 10px !important;
+    max-width: 10px !important;
+    -moz-appearance: none !important;
+    background: none !important;
+    border: none !important;
+}
+
+scrollbarbutton {
+    width: 10px !important;
+    max-width: 10px !important;
+}
+
+slider {
+    width: 10px !important;
+    max-width: 10px !important;
+    -moz-appearance: none !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 10px !important;
+}
+
+thumb {
+    width: 10px !important;
+    max-width: 10px !important;
+    -moz-appearance: none !important;
+    min-height: 100px !important;
+    border: none !important;
+    border-radius: 10px !important;
+    background: var(--scrollbar-thumb-color) !important;
+}
+
+thumb:hover {
+    background: var(--scrollbar-thumb-hover-color) !important;
+}
+
+/************************* OPTIONS *************************/
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    position: relative;
+    width: 100%;
+}
+
+.input-group>input[type="number"] {
+    flex: 1 1 auto;
+    position: relative;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+input[type="number"] {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    color: #99a6b7;
+    background-color: #fff;
+    border: 1px solid #e1e6f1;
+    border-radius: 3px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.input-group-append {
+    display: flex;
+}
+
+.input-group-append>span {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    margin-bottom: 0;
+    color: #596882;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #ebebef;
+    border: 1px solid #ebebef;
+    border-radius: 3px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.title {
+    margin-bottom: 10px;
+    color: #334151;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 500;
+}
+
+.subtitle {
+    height: 30px;
+    font-size: 13px;
+    color: #99a6b7;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.btn {
+    border-width: 0;
+    line-height: 1.538;
+    padding: 4px 10px;
+    border-radius: 4px;
+    min-height: 20px;
+
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 9pt;
+    color: #f9f9fa;
+
+    background-color: #3c3b37;
+    border-color: #3c3b37;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 45% 15%;
+    grid-template-rows: auto auto;
+    grid-column-gap: 45px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 40%;
+    margin: 20px auto;
+}
+
+.error, .success {
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+    display: none;
+}
+
+.error {
+    background-color: #dc3545;
+}
+
+.success {
+    background-color: #28a745;
+}
+
+
+/****** Remove Quick Reply *******/
+
+.quickReply { 
+	display: none !important; 
+}
+
+#messageList {
+    margin-top: 9.4rem !important;
+}
+
+.messageHeader {
+    padding: 10px !important;
+}
+
+#messageList .messageHeader .options > .date,
+#messageList .messageHeader .options > .mainActionButton,
+#messageList .messageHeader .options > .details-hidden,
+#messageList .messageHeader .options > .dropDown,
+#messageList .messageHeader .star {
+    margin-inline-end: 6px !important;
+}
+
+.message {
+    background: white !important;
+    margin: 16px 21px !important;
+    box-shadow: 0 0 3px rgba(50,50,50,.2);
+}
+
+.message .messageBody {
+    padding: 0px 20px !important;
+}
+
+.quickReply.disabled {
+    display: none !important;
+}
+
+#conversationWrapper .conversationHeader {
+    background: #F2F1F0 !important;
+    padding: 15px 20px !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #a0a0a0 !important;
+}
+
+#conversationWrapper .conversationHeader .actions button.button-flat {
+	height: auto !important;
+	padding: 6px !important;
+	margin: 0px 0px 0px 10px !important;
+	color: #303030 !important;
+	border: 1px solid #a0a0a0 !important;
+	border-radius: 5px !important;
+}
+
+
+#conversationWrapper .actions button.button-flat:hover {
+	background: #606060 !important;
+	border: 1px solid #606060 !important;
+	color: white !important;
+}
+
+#conversationWrapper .subject {
+	overflow: visible !important;
+	overflow-x: hidden !important;
+	line-height: 4rem !important;
+	height: 4rem !important;
+	font-size: 1.3em !important;
+}
+
+/********** compose window **************/
+
+#status-bar,
+#compose-toolbar-sizer {
+    background-color: var(--background-color-light) !important;
+    color: var(--message-list-text-color) !important;
+    background-image: none !important;
+}
+
+#headers-box>#MsgHeadersToolbar,
+#FormatToolbox>#FormatToolbar {
+    color: var(--message-list-text-color) !important;
+    background-color: var(--background-color-light) !important;
+    -moz-appearance: none;
+    padding: 10px 12px;
+}
+
+#FormatToolbox>#FormatToolbar {
+	height: 45px !important;
+}
+
+#compose-toolbox>#compose-toolbar-menubar2,
+#compose-toolbox>#composeToolbar2,
+#compose-toolbox>toolbar[id^="__customToolbar"] {
+	-moz-appearance: none;
+	color: var(--tree-text-color-hover) !important;
+}
+
+#compose-toolbox>#compose-toolbar-menubar2:-moz-window-inactive,
+#compose-toolbox > #composeToolbar2:-moz-window-inactive,
+#menubar-items > #mail-menubar > menu:-moz-window-inactive {
+    color: var(--tree-text-color-inactive) !important;
+    background-color: var(--background-color-inactive) !important;
+}
+
+#compose-toolbox>#composeToolbar2 .toolbarbutton-1 {
+    border: 1px solid transparent !important;
+    border-radius: 2px;
+	padding: 5px;
+}
+
+#compose-toolbox>#composeToolbar2 .toolbarbutton-1:hover {
+    border: 1px solid rgba(255, 255, 255, .6) !important;
+    border-radius: 2px;
+}
+
+.emailDisplayButton:hover{
+    background-color: var(--tree-background-color-selected);
+}
+
+#msgHeaderView {
+    color: var(--headers-text-color) !important;
+    background-color: var(--headers-background-color) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25) !important;
+}
+
+.msgHeaderView-button {
+    min-width: 0px !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+    margin: 0px !important;
+}
+
+.msgHeaderView-button:hover {
+    border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+.msgHeaderView-button>label {
+    display: none;
+}
+
+#expandedHeader2Rows row {
+    display: block !important;
+}
+
+#expandedHeaderRows row *,
+#expandedHeader2Rows row * {
+    color: var(--headers-text-color) !important;
+}
+
+#expandedsubjectLabel,
+#expandedfromLabel {
+    display: none !important;
+}
+
+#expandedHeader2Rows #expandedreply-toRow {
+    display: none !important;
+}
+
+#expandedsubjectBox .headerValue {
+    font-size: var(--subject-line-font-size) !important;
+}
+
+.emailStar {
+    margin-inline-start: 2px !important;
+}
+
+menuseparator {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+#msgSubject {
+    background-color: -moz-field !important;
+  }
+  
+  #msgIdentity {
+    background-color: -moz-field !important;
+  }
+  
+  .textbox-addressingWidget,
+  .dummy-row:not(:first-child) {
+    background-color: -moz-field !important;
+  }
+  
+  .addressingWidgetCell:first-child, 
+  .dummy-row-cell:first-child {
+    background-color: #e06d30 !important;
+  }
+  
+  .addressingWidgetCell:nth-child(2), 
+  .dummy-row-cell:nth-child(2) {
+    background-color: #e06d30 !important;
+  }
