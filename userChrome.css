@@ -57,6 +57,9 @@
     --barColor: var(--tree-background-color-selected);
 
 
+    /* Panels Border color */
+    --panels-border-color: #ccc;
+
 	/* Calendar Theme */
 	--calendar-background-weekend: #f0f0f0;
 
@@ -67,11 +70,22 @@ body {
     font-family: "Google Sans", Verdana, sans-serif !important;
     letter-spacing: 0.7px !important;
     overflow-y: auto !important;
-	background: #F2F1F0 !important;
+	background: #f7f7f7 !important;  /* #F2F1F0 !important; */
 }
 
 splitter {
     border-color: rgba(127, 127, 127, 0.25) !important;
+}
+
+#accountTreeBox>treechildren,
+#folderTree>treechildren,
+#threadTree>treechildren,
+.calendar-task-tree>treechildren, 
+#unifinder-search-results-tree>treechildren {
+    --treechildren-selectedBackground: var(--tree-background-color-selected);
+    --treechildren-selectedFocusBackground: var(--tree-background-color-selected);
+    --treechildren-selectedFocusCurrentBackground: var(--tree-background-color-selected);
+    --treechildren-hoverSelectedBackground: var(--tree-background-color-selected);
 }
 
 /****** Folder Tree **************/
@@ -80,11 +94,6 @@ splitter {
     -moz-appearance: none !important;
     background-color: var(--background-sidebar) !important;
     color: var(--sidebar-text-color) !important
-}
-
-#folderTree>treechildren {
-    --treechildren-hoverBackground: rgba(255,255,255,.1);
-    --treechildren-hoverCurrentBackground: rgba(255,255,255,.1);
 }
 
 #folderTree>treechildren::-moz-tree-row {
@@ -169,32 +178,42 @@ splitter {
     color: var(--tree-text-color) !important;
 }
 
-#accountTreeBox>treechildren,
-#folderTree>treechildren,
-#threadTree>treechildren,
-.calendar-task-tree>treechildren, 
-#unifinder-search-results-tree>treechildren {
-    --treechildren-selectedBackground: var(--tree-background-color-selected);
-    --treechildren-selectedFocusBackground: var(--tree-background-color-selected);
-    --treechildren-selectedFocusCurrentBackground: var(--tree-background-color-selected);
-    --treechildren-hoverSelectedBackground: var(--tree-background-color-selected);
+#folderTree > treechildren::-moz-tree-row(hover, selected),
+#folderTree > treechildren::-moz-tree-row(hover) {
+    background-color: var(--tree-background-color-selected-secondary) !important;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: var(--tree-text-color-hover) !important;
 }
 
+#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover),
+#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover, current),
+#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover, selected) {
+    color: var(--tree-text-color-hover) !important;
+}
+
+
 /****** Threads Section **********/
+
+
+#threadTree > treechildren {
+    border-top: 0.5px solid var(--panels-border-color) !important;
+    box-shadow: 0 0 3px inset rgba(50,50,50,.3) !important;
+}
+
+#threadTree treecol {
+    background-color: var(--thread-background-color) !important;
+    color: var(--message-list-text-color) !important;
+}
+
 
 #threadTree>treechildren::-moz-tree-row {
     height: 40px !important;
 	line-height: 40px !important;
     border: none !important;
     border-bottom: 1px solid rgba(127, 127, 127, 0.2) !important;
-    background-color: var(--thread-background-color) !important;
+    background-color: transparent !important;
     color: var(--tree-text-color-hover) !important;
-}
-
-#threadTree treecol, 
-#threadTree{
-    background-color: var(--thread-background-color) !important;
-    color: var(--message-list-text-color) !important;
 }
 
 #threadTree > treechildren::-moz-tree-cell-text(untagged),
@@ -216,8 +235,7 @@ splitter {
     color: var(--tree-text-color-selected) !important;
 }
 
-#threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected),
-#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected, focus) {
+#threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected) {
     color: var(--tree-text-color-selected) !important;
 }
 
@@ -233,16 +251,9 @@ splitter {
     fill: var(--tree-text-color-selected) !important;  
 }
 
-#threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover),
-#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover, current),
-#folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover, selected) {
+#threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover) {
     color: var(--tree-text-color-hover) !important;
     fill: var(--tree-text-color-hover) !important;
-}
-
-#threadTree > treechildren::-moz-tree-row(selected):-moz-window-inactive,
-#threadTree > treechildren::-moz-tree-row(container, selected):-moz-window-inactive {
-    background-color: var(--tree-background-color-selected) !important;
 }
 
 /****** Top Tabs *****************/
@@ -287,10 +298,13 @@ toolbox {
     padding-bottom: 12px !important;
 }
 
-
+#tabmail-arrowscrollbox,
+#tabbar-toolbar,
+#titlebar-placeholder,
 :root[sizemode="normal"] #mail-toolbar-menubar2[autohide="true"][inactive] ~ #tabs-toolbar {
 	background-color: var(--background-color) !important;
 	color: var(--tree-text-color-selected) !important;
+    border-top: 0px !important;
 }
 
 #messengerWindow>#navigation-toolbox:not(:-moz-window-inactive) {
@@ -306,7 +320,7 @@ toolbox {
 #menubar-items>#mail-menubar>menu {
     -moz-appearance: none;
     border-style: none;
-    color: inherit !important;
+    color: inherit !important;    
 }
 
 #menubar-items>#mail-menubar>menu[_moz-menuactive="true"]:not([disabled="true"]) {
@@ -440,7 +454,6 @@ toolbar[brighttext]>.toolbarbutton-1 {
 #unifinder-search-results-tree>treechildren::-moz-tree-row(even),
 #unifinder-search-results-tree>treechildren::-moz-tree-row(odd),
 #threadTree treechildren,
-#threadTree treechildren::-moz-tree-row(container),
 #threadContentArea>#threadTree {
     --treechildren-hoverBackground: var(--tree-background-color-hover);
     --treechildren-hoverCurrentBackground: var(--tree-background-color-hover);
@@ -1012,12 +1025,11 @@ slider {
     width: 10px !important;
     max-width: 10px !important;
     -moz-appearance: none !important;
-    background: none !important;
     border: none !important;
     border-radius: 10px !important;
 }
 
-thumb {
+slider > thumb[orient="vertical"] {
     width: 10px !important;
     max-width: 10px !important;
     -moz-appearance: none !important;
@@ -1025,9 +1037,10 @@ thumb {
     border: none !important;
     border-radius: 10px !important;
     background: var(--scrollbar-thumb-color) !important;
+
 }
 
-thumb:hover {
+slider > thumb[orient="vertical"]:hover {
     background: var(--scrollbar-thumb-hover-color) !important;
 }
 
@@ -1163,10 +1176,6 @@ input[type="number"] {
 	display: none !important; 
 }
 
-#messageList {
-    margin-top: 9.4rem !important;
-}
-
 .messageHeader {
     padding: 10px !important;
 }
@@ -1194,15 +1203,21 @@ input[type="number"] {
 }
 
 #conversationWrapper .conversationHeader {
-    background: #F2F1F0 !important;
+    background: white !important;
     padding: 15px 20px !important;
     box-shadow: none !important;
-    border-bottom: 1px solid #a0a0a0 !important;
+    border-bottom: 0px solid var(--panels-border-color) !important;
+}
+
+
+#conversationWrapper .conversationHeader .actions button.button-flat .icon {
+    width: 20px !important;
+    height: 20px !important;
 }
 
 #conversationWrapper .conversationHeader .actions button.button-flat {
-	height: auto !important;
-	padding: 6px !important;
+    height: auto !important;
+	padding: 5px !important;
 	margin: 0px 0px 0px 10px !important;
 	color: #303030 !important;
 	border: 1px solid #a0a0a0 !important;
@@ -1217,12 +1232,17 @@ input[type="number"] {
 }
 
 #conversationWrapper .subject {
+    font-family: "Google Sans", sans-serif !important;
 	overflow: visible !important;
 	overflow-x: hidden !important;
-	line-height: 4rem !important;
-	height: 4rem !important;
+	line-height: 3rem !important;
+	height: 3rem !important;
 	font-size: 1.3em !important;
 }
+
+.bottom-links {
+    display: none !important;
+} 
 
 /********** compose window **************/
 
@@ -1249,13 +1269,15 @@ input[type="number"] {
 #compose-toolbox>#composeToolbar2,
 #compose-toolbox>toolbar[id^="__customToolbar"] {
 	-moz-appearance: none;
-	color: var(--tree-text-color-hover) !important;
+    background-image: none !important;
+    background-color: var(--background-color) !important;
+	color: var(--tree-text-color-selected) !important;
 }
 
 #compose-toolbox>#compose-toolbar-menubar2:-moz-window-inactive,
 #compose-toolbox > #composeToolbar2:-moz-window-inactive,
 #menubar-items > #mail-menubar > menu:-moz-window-inactive {
-    color: var(--tree-text-color-inactive) !important;
+    color: var(--tree-text-color) !important;
     background-color: var(--background-color-inactive) !important;
 }
 
@@ -1272,6 +1294,14 @@ input[type="number"] {
 
 .emailDisplayButton:hover{
     background-color: var(--tree-background-color-selected);
+}
+
+window[windowtype="msgcompose"] toolbar,
+window[windowtype="msgcompose"] toolbar[type="menubar"] {
+    -moz-appearance: none !important;
+    background-image: none !important;
+    background-color: var(--background-color) !important;
+    color: var(--tree-text-color) !important;
 }
 
 #msgHeaderView {
