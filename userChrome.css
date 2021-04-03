@@ -79,6 +79,7 @@ splitter {
 
 #accountTreeBox>treechildren,
 #folderTree>treechildren,
+#dirTree>treechildren,
 #threadTree>treechildren,
 .calendar-task-tree>treechildren, 
 #unifinder-search-results-tree>treechildren {
@@ -90,12 +91,14 @@ splitter {
 
 /****** Folder Tree **************/
 
+#dirTree,
 #folderTree {
     -moz-appearance: none !important;
     background-color: var(--background-sidebar) !important;
     color: var(--sidebar-text-color) !important
 }
 
+#dirTree>treechildren::-moz-tree-row,
 #folderTree>treechildren::-moz-tree-row {
     font-family: "Google Sans", sans-serif !important;
 	background: var(--background-sidebar) !important;
@@ -105,11 +108,14 @@ splitter {
     margin-right: 10px !important;
 }
 
+#dirTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text,
+#dirTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected, focus),
 #folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text,
 #folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected, focus) {
   color: #ddd !important;
 }
 
+#dirTree > treechildren::-moz-tree-row(selected),
 #folderTree > treechildren::-moz-tree-row(selected) {
     border: none !important;
     background: var(--tree-background-color-selected) !important;
@@ -119,23 +125,28 @@ splitter {
     border-bottom-right-radius: 20px;
 }
 
+#dirTree > treechildren::-moz-tree-row(primary) ,
 #folderTree > treechildren::-moz-tree-row(primary) {
     background: var(--tree-background-color-selected) !important
 }
 
+#dirTree > treechildren::-moz-tree-cell-text(selected),
 #folderTree > treechildren::-moz-tree-cell-text(selected) {
     color: var(--sidebar-text-color) !important;
 }
 
+#dirTree > treechildren::-moz-tree-line,
 #folderTree > treechildren::-moz-tree-line {
     visibility: visible !important;
 }
 
+#dirTree,
 #folderTree {
     padding-top: 20px !important;
     padding-right: 0px !important;
 }
 
+#dirTree>treechildren::-moz-tree-image,
 #folderPaneBox>#folderTree>treechildren::-moz-tree-image {
     fill: var(--tree-text-color) !important;
     width: 20px !important;
@@ -143,12 +154,15 @@ splitter {
     margin: 0 5px 0px 5px !important;
 }
 
+#dirTree>treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true),
+#dirTree>treechildren::-moz-tree-cell-text(folderNameCol, closed, subfoldersHaveUnreadMessages-true),
 #folderTree>treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true),
 #folderTree>treechildren::-moz-tree-cell-text(folderNameCol, closed, subfoldersHaveUnreadMessages-true) {
     color: #fff !important;
     font-style: italic !important;
 }
 
+#dirTree>treechildren::-moz-tree-twisty,
 #folderTree>treechildren::-moz-tree-twisty {
     -moz-appearance: none;
     padding: 0px !important;
@@ -163,21 +177,23 @@ splitter {
     margin-top: 4px !important;
     margin-bottom: 4px !important;
     fill: #fff !important;
-    background-color: var(--background-sidebar) !important;
     background-position: center center;
     border-radius: 20px !important;
 }
 
+#dirTree>treechildren::-moz-tree-twisty(open),
 #folderTree>treechildren::-moz-tree-twisty(open) {
     -moz-appearance: none;
 }
 
-
+#dirTree>treechildren::-moz-tree-twisty:-moz-window-inactive,
 #folderTree>treechildren::-moz-tree-twisty:-moz-window-inactive {
     fill: var(--tree-text-color) !important;
     color: var(--tree-text-color) !important;
 }
 
+#dirTree > treechildren::-moz-tree-row(hover, selected),
+#dirTree > treechildren::-moz-tree-row(hover), 
 #folderTree > treechildren::-moz-tree-row(hover, selected),
 #folderTree > treechildren::-moz-tree-row(hover) {
     background-color: var(--tree-background-color-selected-secondary) !important;
@@ -186,6 +202,9 @@ splitter {
     color: var(--tree-text-color-hover) !important;
 }
 
+#dirTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover),
+#dirTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover, current),
+#dirTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover, selected),
 #folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover),
 #folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover, current),
 #folderTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover, selected) {
@@ -195,18 +214,19 @@ splitter {
 
 /****** Threads Section **********/
 
-
+#abResultsTree > treechildren, 
 #threadTree > treechildren {
     border-top: 0.5px solid var(--panels-border-color) !important;
     box-shadow: 0 0 3px inset rgba(50,50,50,.3) !important;
 }
 
+#abResultsTree treecol, 
 #threadTree treecol {
     background-color: var(--thread-background-color) !important;
     color: var(--message-list-text-color) !important;
 }
 
-
+#abResultsTree>treechildren::-moz-tree-row, 
 #threadTree>treechildren::-moz-tree-row {
     height: 40px !important;
 	line-height: 40px !important;
@@ -216,16 +236,20 @@ splitter {
     color: var(--tree-text-color-hover) !important;
 }
 
+#abResultsTree > treechildren::-moz-tree-cell-text(untagged),
 #threadTree > treechildren::-moz-tree-cell-text(untagged),
 #threadCols {
     color: #000 !important;
 }
 
-
+#abResultsTree > treechildren::-moz-tree-img(selected), 
 #threadTree > treechildren::-moz-tree-img(selected) {
     fill: var(--tree-text-color-selected) !important;
 }
 
+#abResultsTree > treechildren::-moz-tree-row(selected),
+#abResultsTree > treechildren::-moz-tree-row(tagged, selected),
+#abResultsTree > treechildren::-moz-tree-row(container, selected), 
 #threadTree > treechildren::-moz-tree-row(selected),
 #threadTree > treechildren::-moz-tree-row(tagged, selected),
 #threadTree > treechildren::-moz-tree-row(container, selected) {
@@ -235,22 +259,26 @@ splitter {
     color: var(--tree-text-color-selected) !important;
 }
 
+#abResultsTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected), 
 #threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected) {
     color: var(--tree-text-color-selected) !important;
 }
 
+#abResultsTree > treechildren:not(.autocomplete-treebody)::-moz-tree-row(hover), 
 #threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-row(hover) {
   background-color: var(--tree-background-color-hover) !important;
   color: var(--tree-text-color-hover) !important;
   fill: var(--tree-text-color-hover) !important;
 }
 
+#abResultsTree > treechildren:not(.autocomplete-treebody)::-moz-tree-row(hover, selected), 
 #threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-row(hover, selected) {
     background-color: var(--tree-background-color-selected-secondary) !important;
     color: var(--tree-text-color-selected) !important;
     fill: var(--tree-text-color-selected) !important;  
 }
 
+#abResultsTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover), 
 #threadTree > treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(hover) {
     color: var(--tree-text-color-hover) !important;
     fill: var(--tree-text-color-hover) !important;
@@ -258,6 +286,8 @@ splitter {
 
 /****** Top Tabs *****************/
 
+
+#ab-toolbox #menubar-items > #mail-menubar,
 #mail-toolbar-menubar2,
 #mail-bar3 #MsgHeadersToolbar,
 #addrbook-toolbar-menubar2,
@@ -285,6 +315,11 @@ toolbox {
 
 #agenda-toolbar .agenda-container-box {
     padding: 7px 4px !important;
+}
+
+.agenda-allday-container-box .calendar-color-box {
+    margin-top: 5px !important;
+    border-radius: 5px !important;
 }
 
 #agenda-panel .today-subpane {
@@ -478,6 +513,7 @@ toolbar[brighttext]>.toolbarbutton-1 {
     color: var(--tree-text-color-selected) !important;
 } 
 
+#ab-toolbox,
 #mail-toolbox,
 #calendar-toolbox,
 #task-toolbox,
@@ -1253,6 +1289,7 @@ input[type="number"] {
     background-image: none !important;
 }
 
+
 #headers-box>#MsgHeadersToolbar,
 #FormatToolbox>#FormatToolbar {
     color: var(--message-list-text-color) !important;
@@ -1275,8 +1312,7 @@ input[type="number"] {
 }
 
 #compose-toolbox>#compose-toolbar-menubar2:-moz-window-inactive,
-#compose-toolbox > #composeToolbar2:-moz-window-inactive,
-#menubar-items > #mail-menubar > menu:-moz-window-inactive {
+#compose-toolbox > #composeToolbar2:-moz-window-inactive {
     color: var(--tree-text-color) !important;
     background-color: var(--background-color-inactive) !important;
 }
@@ -1378,3 +1414,29 @@ menuseparator {
   .dummy-row-cell:nth-child(2) {
     background-color: #e06d30 !important;
   }
+
+
+  /* Address Book */
+
+#CardViewBox {
+    background-color: var(--background-color-light) !important;
+    text-shadow: none !important;
+    color: var(--tree-text-color-hover) !important;
+}
+
+#CardTitle {
+    background: var(--tree-background-color-selected) !important;
+    text-shadow: none !important;
+    height: 28px !important;
+    line-height: 25px !important;
+    padding-left: 10px !important;
+    text-shadow: none !important;
+    font-family: 'Century Gothic' !important;
+    font-size: 12pt !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    border-bottom: none !important;
+    margin-top: -2px !important;
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+}
