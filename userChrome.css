@@ -137,7 +137,7 @@ splitter {
 
 #dirTree > treechildren::-moz-tree-line,
 #folderTree > treechildren::-moz-tree-line {
-    visibility: visible !important;
+    visibility: none !important;
 }
 
 #dirTree,
@@ -729,7 +729,7 @@ calendar-header-container[selected="true"],
 /* Calendar Events Boxes */
 
 #calendarContent .calendar-color-box {
-	opacity: 0.7;
+	opacity: 1;
     background-image: none !important;
 	border-radius: 4px !important;
 }
@@ -834,6 +834,8 @@ calendar-editable-item[selected="true"] .calendar-color-box {
 }
 
 /* Lightning */
+
+
 
 #calendar-toolbox-container,
 #calendar-task-tree treechildren::-moz-tree-cell-text,
@@ -1214,6 +1216,7 @@ input[type="number"] {
 
 .messageHeader {
     padding: 10px !important;
+    margin: 0 !important;
 }
 
 #messageList .messageHeader .options > .date,
@@ -1227,7 +1230,8 @@ input[type="number"] {
 .message {
     background: white !important;
     margin: 16px 21px !important;
-    box-shadow: 0 0 3px rgba(50,50,50,.2);
+    box-shadow: 0 10px 13px #c6c6c6;
+    border: 1px solid #C7C9C7 !important;
 }
 
 .message .messageBody {
@@ -1439,4 +1443,36 @@ menuseparator {
     margin-top: -2px !important;
     margin-left: -8px !important;
     margin-right: -8px !important;
+}
+
+/* Lightning Notifications */
+
+.notificationBar {
+    margin-bottom: 20px !important;
+    line-height: 1.5em !important;
+}
+
+.notificationBar .icon {
+    font-size: 1.1em !important;
+    margin: 0 .5em !important;
+}
+
+.notificationBar button {
+    margin: 0 .1em !important;
+    float: none !important;
+    display: inline-block;
+}
+
+.notificationBar button:hover {
+    cursor: pointer;
+    background:hsla(0, 0%, 0%, .12);
+}
+
+.invitation-table {
+    border: 1px solid black !important;
+    border-radius: 5px !important;
+}
+
+.dateValue {
+    font-size: 48px !important;
 }
